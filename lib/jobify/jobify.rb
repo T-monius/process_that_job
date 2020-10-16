@@ -1,14 +1,13 @@
-# require_relative '/queue.rb'
+require_relative 'jobify/active_job_adapter.rb'
 
 class Jobify
-  def initialize(queue)
-    self.queue = queue
-  end
+  def initialize; end
 
   def start
     self.running = true
     puts "Starting jobify"
     puts '---------------------'
+
     sleep(1)
     while running
       # check queue for jobs and process them
@@ -29,10 +28,9 @@ class Jobify
 
   protected
 
-  attr_accessor :queue, :running
+  attr_accessor :running
 end
 
-tmp_queue = []
-job_processor = Jobify.new(tmp_queue)
+job_processor = Jobify.new
 
 job_processor.start
