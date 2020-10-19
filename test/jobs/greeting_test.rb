@@ -1,4 +1,5 @@
 require 'test_helper'
+# require 'lib/jobify/jobify/active_job_adapter.rb'
 
 class GreetingTest < ActiveJob::TestCase
   test 'Can enqueue jobs' do
@@ -29,4 +30,8 @@ class GreetingTest < ActiveJob::TestCase
 
     assert_performed_jobs 2
   end
+
+  # test 'Using JobifyAdapter' do
+  #   assert_instance_of JobifyAdapter, Greeting.queue_adapter
+  # end
 end
